@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-def safe_print_list(my_list = [], x = 0):
+def safe_print_list(my_list=[], x=0):
+
     k = 0
     try:
         while k is not x:
