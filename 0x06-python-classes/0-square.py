@@ -3,4 +3,4 @@
 
 class Square:
     """Defining the Square object"""
-    return None
+    pass
