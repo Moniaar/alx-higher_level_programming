@@ -7,5 +7,5 @@ def safe_print_division(a, b):
     except ZeroDivisionError:
         Divres = None
     finally:
-        print('Inside result: ()'.format(Divres))
+        print('Inside result: {}'.format(Divres))
         return Divres
