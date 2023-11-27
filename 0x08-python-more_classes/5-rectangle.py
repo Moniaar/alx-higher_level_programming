@@ -61,5 +61,6 @@ class Rectangle:
         return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
 
     def __del__(self):
-        """return a string that says Bye rectangle... everytime an object is deleted"""
+        """return a string that says Bye rectangle
+        everytime an object is deleted"""
         print("Bye rectangle...")
