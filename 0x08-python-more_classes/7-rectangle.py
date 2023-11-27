@@ -53,13 +53,11 @@ class Rectangle:
 
     def __str__(self):
         """Method to create a string of a rectangle"""
-        rectangle_str = ""
         if self.__width != 0 and self.__height != 0:
-            rectangle_str += "\n".join(
-                    str(Rectangle.print_symbol)
-                    * self.__width for _ in range(self.__height))
-        return rectangle_str
-
+            return " "
+        return ((str(self.print_symmbol) * self.width + "\n" *
+            self.height)[:-1]
+            
     def __repr__(self):
         """return a string representation of the rectangle to
         be able to recreate a new instance"""
