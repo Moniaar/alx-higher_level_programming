@@ -92,3 +92,9 @@ class Rectangle(Base):
         if y is not None:
             self.y = y
 
+    def update(self, *args, **kwargs):
+        """update the attributes using keyword arguments"""
+        if args:
+            self.__update(*args)
+        elif kwargs:
+            self.__update(**kwargs)
