@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """A module to work with the base class"""
-from models.base import Base
+Base = __import__('base').Base
 
 
 class Rectangle(Base):
@@ -41,7 +41,7 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, value):
-        self.see_int_value("x", value
+        self.see_int_value("x", value)
         self.__x = value
 
     @property
@@ -64,17 +64,17 @@ class Rectangle(Base):
             raise ValueError("{} must be > 0".format(name))
 
     def area(self):
-    """this method calculate the area of a rectangle"""
+        """this method calculate the area of a rectangle"""
         return self.width * self.height
 
     def display(self):
-    """returns the area value of the Rectangle instance"""
+        """returns the area value of the Rectangle instance"""
         s = '\n' * self.y + \
                 (' ' * self.x + '#' * self.width + '\n') * self.height
         print(s, end ='')
 
     def __str__():
-    """it returns [Rectangle] (<id>) <x>/<y> - <width>/<height>"""
+        """it returns [Rectangle] (<id>) <x>/<y> - <width>/<height>"""
         return '[{}] ({}) {}/{} - {}/{}'.\
                 format(type(self).__name__, self.id, self.x, self.y, self.width, 
                     self.height)
@@ -93,10 +93,34 @@ class Rectangle(Base):
             self.y = y
 
     def update(self, *args, **kwargs):
-    """assigns an arguments to each attributes of the class"""
+        """assigns an arguments to each attributes of the class"""
         # do task 8 question, skip kwargs is args are passed
         if args:
             self.__update(*args)
         # ** means break the dictionary value into keys and values
         elif kwargs:
             self.__update(**kwargs)
+
+if __name__ == "__main__":
+
+    try:
+        Rectangle(10, "2")
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+
+    try:
+        r = Rectangle(10, 2)
+        r.width = -10
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+
+    try:
+        r = Rectangle(10, 2)
+        r.x = {}
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+
+    try:
+        Rectangle(10, 2, 3, -1)
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
