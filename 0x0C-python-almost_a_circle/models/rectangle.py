@@ -91,36 +91,3 @@ class Rectangle(Base):
             self.x = x
         if y is not None:
             self.y = y
-
-    def update(self, *args, **kwargs):
-        """assigns an arguments to each attributes of the class"""
-        # do task 8 question, skip kwargs is args are passed
-        if args:
-            self.__update(*args)
-        # ** means break the dictionary value into keys and values
-        elif kwargs:
-            self.__update(**kwargs)
-
-if __name__ == "__main__":
-
-    try:
-        Rectangle(10, "2")
-    except Exception as e:
-        print("[{}] {}".format(e.__class__.__name__, e))
-
-    try:
-        r = Rectangle(10, 2)
-        r.width = -10
-    except Exception as e:
-        print("[{}] {}".format(e.__class__.__name__, e))
-
-    try:
-        r = Rectangle(10, 2)
-        r.x = {}
-    except Exception as e:
-        print("[{}] {}".format(e.__class__.__name__, e))
-
-    try:
-        Rectangle(10, 2, 3, -1)
-    except Exception as e:
-        print("[{}] {}".format(e.__class__.__name__, e))
