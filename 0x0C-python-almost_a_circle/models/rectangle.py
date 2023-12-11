@@ -21,7 +21,7 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, value):
-        self.see_int_value("width", value, False)
+        self.validate_integer("width", value, False)
         self.__width = value
 
     @property
@@ -31,7 +31,7 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, value):
-        self.see_int_value("height", value, False)
+        self.validate_integer("height", value, False)
         self.__height = value
 
     @property
@@ -41,7 +41,7 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, value):
-        self.see_int_value("x", value)
+        self.validate_integer("x", value)
         self.__x = value
 
     @property
@@ -51,10 +51,10 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, value):
-        self.see_int_value("y", value)
+        self.validate_integer("y", value)
         self.__y = value
 
-    def see_int_value(self, name, value, type_equality=True):
+    def validate_integer(self, name, value, type_equality=True):
         """Method for validating integer values entred by the user"""
         if type(value) != int:
             raise TypeError("{} must be an integer".format(name))
@@ -91,3 +91,4 @@ class Rectangle(Base):
             self.x = x
         if y is not None:
             self.y = y
+
