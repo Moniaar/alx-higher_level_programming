@@ -49,19 +49,6 @@ class Square(Rectangle):
         elif kwargs:
             self.__update(**kwargs)
 
-    def __update(self, id=None, width=None, height=None, x=None, y=None):
-        """assigns a key/value argument to attributes"""
-        if id is not None:
-            self.id = id
-        if width is not None:
-            self.width = width
-        if height is not None:
-            self.height = height
-        if x is not None:
-            self.x = x
-        if y is not None:
-            self.y = y
-
     def to_dictionary(self):
         """Method that returns the dictionary
         representation of a Rectangle"""
