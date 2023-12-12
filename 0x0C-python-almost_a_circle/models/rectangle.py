@@ -13,7 +13,7 @@ class Rectangle(Base):
         self.height = height
         self.x = x
         self.y = y
-    
+
     @property
     def width(self):
         """the width of the rectangle"""
@@ -70,14 +70,14 @@ class Rectangle(Base):
     def display(self):
         """returns the area value of the Rectangle instance"""
         s = '\n' * self.y + \
-                (' ' * self.x + '#' * self.width + '\n') * self.height
-        print(s, end ='')
+            (' ' * self.x + '#' * self.width + '\n') * self.height
+        print(s, end='')
 
-    def __str__():
-        """it returns [Rectangle] (<id>) <x>/<y> - <width>/<height>"""
-        return '[{}] ({}) {}/{} - {}/{}'.\
-                format(type(self).__name__, self.id, self.x, self.y, self.width, 
-                    self.height)
+    def __str__(self):
+        """Returns [Rectangle] (<id>) <x>/<y> - <width>/<height>"""
+        return '[{}] ({}) {}/{} - {}/{}'.format(
+            type(self).__name__, self.id, self.x, self.y,
+            self.width, self.height)
 
     def __update(self, id=None, width=None, height=None, x=None, y=None):
         """assigns a key/value argument to attributes"""
