@@ -6,5 +6,5 @@ if (argsLen === 0) {
 } else if (argsLen === 1) {
  console.log('Argument found');
 } else {
-console.log('Arguments found');
+ console.log('Arguments found');
 }
