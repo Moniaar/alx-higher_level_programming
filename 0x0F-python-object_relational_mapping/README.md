@@ -44,6 +44,23 @@ $ python3
 '1.4.22' ```
 ```
 ---
+Some resources that may help you if you faced any problem installing anything:
+1. No module named SQLAlchemy: https://bobbyhadz.com/blog/python-no-module-named-sqlalchemy
+2. No module named SQLdb: https://appuals.com/no-module-named-mysqldb/
+Installation for a connector with the server can be done using the command (Linux users):
+``` $ pip install mysql-connector-python ```
 Now let's start exploring more concpets from ORM, and start knowing more about connecting and unit of work in SQLAlchemy.
 ### Units of work, what is it? ###
 a system that transparently synchronizes all changes in state between objects and their related rows, called a unit of work, as well as a system for expressing database queries in terms of the user defined classes and their defined relationships between each other.
+
+### database driver ###
+a piece of software that allows an application to connect and interact with a database system. Programming languages like Python need a special driver before they can speak to a database from a specific vendor. Note that: MySQL’s official documentation uses the term connector instead of driver. Technically, connectors are associated only with connecting to a database, not interacting with it. However, the term is often used for the entire database access module comprising the connector and the driver.
+#### Establishing a Connection With MySQL Server ####
+MySQL is a server-based database management system. One server might contain multiple databases. To interact with a database, you must first establish a connection with the server. The general workflow of a Python program that interacts with a MySQL-based database is as follows:
+1. Connect to the MySQL server.
+2. Create a new database.
+3. Connect to the newly created or an existing database.
+4. Execute a SQL query and fetch results.
+5. Inform the database if any changes are made to a table.
+6. Close the connection to the MySQL server.
+This is a generic workflow that might vary depending on the individual application. But whatever the application might be, the first step is to connect your database with your application.
