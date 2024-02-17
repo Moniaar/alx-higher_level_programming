@@ -49,7 +49,15 @@ Some resources that may help you if you faced any problem installing anything:
 2. No module named SQLdb: https://appuals.com/no-module-named-mysqldb/
 Installation for a connector with the server can be done using the command (Linux users):
 ``` $ pip install mysql-connector-python ```
-Now let's start exploring more concpets from ORM, and start knowing more about connecting and unit of work in SQLAlchemy.
+3. /var/run/mysqld/mysqld.sock' issue: https://stackoverflow.com/questions/11990708/error-cant-connect-to-local-mysql-server-through-socket-var-run-mysqld-mysq
+   ```
+   sudo apt-get clean
+    sudo apt-get update
+    sudo apt-get upgrade -f
+   ```
+   Then you can start running your server using: ``` sudo service mysql start ```.
+---
+   Now let's start exploring more concpets from ORM, and start knowing more about connecting and unit of work in SQLAlchemy.
 ### Units of work, what is it? ###
 a system that transparently synchronizes all changes in state between objects and their related rows, called a unit of work, as well as a system for expressing database queries in terms of the user defined classes and their defined relationships between each other.
 
