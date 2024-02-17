@@ -56,6 +56,7 @@ Installation for a connector with the server can be done using the command (Linu
     sudo apt-get upgrade -f
    ```
    Then you can start running your server using: ``` sudo service mysql start ```.
+4. ERROR 1698 (28000): Access denied for user 'root'@'localhost': https://stackoverflow.com/questions/39281594/error-1698-28000-access-denied-for-user-rootlocalhost
 ---
    Now let's start exploring more concpets from ORM, and start knowing more about connecting and unit of work in SQLAlchemy.
 ### Units of work, what is it? ###
