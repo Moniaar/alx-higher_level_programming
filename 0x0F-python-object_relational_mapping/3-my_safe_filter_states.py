@@ -26,7 +26,7 @@ if __name__ == '__main__':
     # with the name as a string by avoiding any sql injection attacks
     query = "SELECT * FROM states WHERE name = %(name)s ORDER BY states.id"
     # to check the format of the name of the state that is passed using name
-    cursor.exectue(query, {'name':state_name})
+    cursor.execute(query, {'name':state_name})
     rows = cursor.fetchall()
     for row in rows:
         print(row)
