@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""A Script that will lists all states from the database hbtn_0e_0_usa"""
+"""A Script that will lists all states from the database hbtn_0e_0_usa
+But with the name starting with N in uppercase
+"""
 
 
 if __name__ == '__main__':
@@ -19,7 +21,11 @@ if __name__ == '__main__':
                          charset="utf8")
 
     cursor = db.cursor()
-    cursor.execute("SELECT * FROM states WHERE name LIKE BINARY '%N' ORDER BY states.id")
+    #The query with join to search among all states rows
+    query = "".join(["SELECT * FROM states",
+               "WHERE name LIKE BINARY '%N'",
+               "ORDER BY states.id"])
+    cursor.exectue(query)
     rows = cursor.fetchall()
     for row in rows:
         print(row)
