@@ -28,7 +28,7 @@ if __name__ == '__main__':
     cursor.exectue(query)
     rows = cursor.fetchall()
     for row in rows:
-        print(row)
+     print(row)
 
     cursor.close()
     db.close()
