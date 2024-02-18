@@ -3,7 +3,6 @@
 But with the name starting with N in uppercase
 """
 
-
 if __name__ == '__main__':
     import MySQLdb
     from sys import argv
@@ -13,22 +12,29 @@ if __name__ == '__main__':
     USER = argv[1]
     PASS = argv[2]
     DB = argv[3]
-    db = MySQLdb.connect(host=HOST,
-                         port=PORT,
-                         user=USER,
-                         passwd=PASS,
-                         db=DB,
-                         charset="utf8")
+    
+    try:
+        db = MySQLdb.connect(host=HOST,
+                             port=PORT,
+                             user=USER,
+                             passwd=PASS,
+                             db=DB,
+                             charset="utf8")
 
-    cursor = db.cursor()
-    #The query to search among all states rows
-    query = "SELECT * FROM states WHERE name LIKE BINARY
-            '%N' ORDER BY id ASC"
+        cursor = db.cursor()
 
-    cursor.execute(query)
-    rows = cursor.fetchall()
-    for row in rows:
-     print(row)
+        # The corrected query to search among all states rows
+        query = "SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC"
 
-    cursor.close()
-    db.close()
+        cursor.execute(query)
+        rows = cursor.fetchall()
+
+        for row in rows:
+            print(row)
+
+    except MySQLdb.Error as e:
+        print("Error connecting to the database:", e)
+    finally:
+        if db:
+            cursor.close()
+            db.close()
