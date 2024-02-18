@@ -7,12 +7,6 @@ from model_state import Base, State
 from sys import argv
 
 if __name__ == "__main__":
-    # Check if correct number of arguments are provided
-    if len(argv) != 4:
-        print("Usage: {} <mysql_username> <mysql_password> <database_name>"
-              .format(argv[0]))
-        exit(1)
-
     # Get MySQL credentials from command line arguments
     mysql_username = argv[1]
     mysql_password = argv[2]
