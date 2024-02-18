@@ -23,7 +23,10 @@ if __name__ == '__main__':
         cursor = db.cursor()
 
         # The corrected query to search among all states rows
-        query = "SELECT * FROM cities ORDER BY cities.id ASC"
+        query = " ".join(["SELECT c.id, c.name, st.name",
+                          "FROM cities c, states st",
+                          "WHERE c.state_id = st.id",
+                          "ORDER BY c.id"])
 
         cursor.execute(query)
         rows = cursor.fetchall()
