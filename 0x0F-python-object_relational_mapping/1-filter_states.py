@@ -23,8 +23,7 @@ if __name__ == '__main__':
     cursor = db.cursor()
     #The query with join to search among all states rows
     query = "".join(["SELECT * FROM states",
-               "WHERE name LIKE BINARY '%N'",
-               "ORDER BY states.id"])
+               "WHERE name LIKE BINARY '%N'", "ORDER BY states.id"])
     cursor.exectue(query)
     rows = cursor.fetchall()
     for row in rows:
