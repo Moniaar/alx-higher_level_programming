@@ -1,42 +1,43 @@
 #!/usr/bin/python3
-"""A Script that will lists all cities from the database hbtn_0e_0_usa"""
+"""Script to list all cities of a state from the database hbtn_0e_4_usa."""
 
+import MySQLdb
+from sys import argv
 
 if __name__ == '__main__':
-    import MySQLdb
-    from sys import argv
+    # Check if correct number of arguments are provided
+    if len(argv) != 5:
+        print("Usage: {} <mysql_username> <mysql_password> <database_name> <state_name>"
+              .format(argv[0]))
+        exit(1)
 
-    HOST = "localhost"
-    PORT = 3306
-    USER = argv[1]
-    PASS = argv[2]
-    DB = argv[3]
+    # Get MySQL credentials and state name from command line arguments
+    mysql_username = argv[1]
+    mysql_password = argv[2]
+    database_name = argv[3]
+    state_name = argv[4]
 
-    try:
-        db = MySQLdb.connect(host=HOST,
-                             port=PORT,
-                             user=USER,
-                             passwd=PASS,
-                             db=DB,
-                             charset="utf8")
+    # Connect to MySQL server
+    db = MySQLdb.connect(host="localhost", port=3306, user=mysql_username, passwd=mysql_password, db=database_name)
+    cursor = db.cursor()
 
-        cursor = db.cursor()
+    # Execute the SQL query to retrieve all cities of the specified state
+    query = """
+            SELECT cities.id, cities.name, states.name
+            FROM cities
+            JOIN states ON cities.state_id = states.id
+            WHERE states.name = %s
+            ORDER BY cities.id
+            """
+    cursor.execute(query, (state_name,))
 
-        # The corrected query to search among all states rows
-        query = " ".join(["SELECT c.id, c.name, st.name",
-                          "FROM cities c, states st",
-                          "WHERE c.state_id = st.id",
-                          "ORDER BY c.id"])
+    # Fetch all the rows
+    rows = cursor.fetchall()
 
-        cursor.execute(query ,(state_name,))
-        rows = cursor.fetchall()
+    # Display the results
+    for row in rows:
+        print(row)
 
-        for row in rows:
-            print(row)
-
-    except MySQLdb.Error as e:
-        print("Error connecting to the database:", e)
-    finally:
-        if db:
-            cursor.close()
-            db.close()
+    # Close the cursor and the database connection
+    cursor.close()
+    db.close()
