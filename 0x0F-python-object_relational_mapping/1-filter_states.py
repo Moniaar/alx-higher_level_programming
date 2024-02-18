@@ -17,13 +17,14 @@ if __name__ == '__main__':
                          port=PORT,
                          user=USER,
                          passwd=PASSWORD,
-                         db=DATABASE,
+                         db=DB,
                          charset="utf8")
 
     cursor = db.cursor()
     #The query with join to search among all states rows
     query = "".join(["SELECT * FROM states",
                "WHERE name LIKE BINARY '%N'", "ORDER BY states.id"])
+
     cursor.exectue(query)
     rows = cursor.fetchall()
     for row in rows:
