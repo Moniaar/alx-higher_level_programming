@@ -12,7 +12,7 @@ if __name__ == '__main__':
     USER = argv[1]
     PASS = argv[2]
     DB = argv[3]
-    
+
     try:
         db = MySQLdb.connect(host=HOST,
                              port=PORT,
@@ -24,7 +24,9 @@ if __name__ == '__main__':
         cursor = db.cursor()
 
         # The corrected query to search among all states rows
-        query = "SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC"
+        query = "SELECT * FROM states " \
+                "WHERE name LIKE BINARY 'N%' " \
+                "ORDER BY id ASC"
 
         cursor.execute(query)
         rows = cursor.fetchall()
