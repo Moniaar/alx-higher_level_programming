@@ -9,6 +9,7 @@ from sqlalchemy.orm import sessionmaker
 
 Base = declarative_base()
 
+
 class State(Base):
     """Class representing the states table in MySQL
        id: a column of an auto-generated, unique integer, can’t be null
@@ -19,4 +20,3 @@ class State(Base):
 
     id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)
     name = Column(String(128), nullable=False)
-
