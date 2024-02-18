@@ -23,8 +23,6 @@ if __name__ == "__main__":
                            .format(mysql_username, mysql_password,
                                    database_name))
 
-    # Bind the engine to the Base class
-    Base.metadata.bind = engine
 
     # Create a session to interact with the database
     Session = sessionmaker(bind=engine)
