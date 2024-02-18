@@ -9,7 +9,8 @@ from sys import argv
 if __name__ == "__main__":
     # Check if correct number of arguments are provided
     if len(argv) != 4:
-        print("Usage: {} <mysql_username> <mysql_password> <database_name>".format(argv[0]))
+        print("Usage: {} <mysql_username> <mysql_password> <database_name>"
+              .format(argv[0]))
         exit(1)
 
     # Get MySQL credentials from command line arguments
@@ -18,7 +19,9 @@ if __name__ == "__main__":
     database_name = argv[3]
 
     # Create an engine to connect to the database
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.format(mysql_username, mysql_password, database_name))
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
+                           .format(mysql_username, mysql_password,
+                                   database_name))
 
     # Bind the engine to the Base class
     Base.metadata.bind = engine
