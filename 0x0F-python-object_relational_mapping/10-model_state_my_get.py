@@ -31,12 +31,9 @@ if __name__ == "__main__":
     session = Session()
 
     # Query and print the first State object, ordered by states.id
-    first_state = session.query(State).order_by(State.id).first()
-
-    if state:
-        print(state.id)
+    states = session.query(State).filter(State.name == state_name)
+    if states.count() != 0:
+        for state in states:
+            print(state.id)
     else:
         print("Not found")
-
-    # Close the session
-    session.close()
