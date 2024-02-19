@@ -36,7 +36,7 @@ if __name__ == '__main__':
 
     # Display the results
     for row in rows:
-        print(row)
+        print("{}".format(row))
 
     # Close the cursor and the database connection
     cursor.close()
