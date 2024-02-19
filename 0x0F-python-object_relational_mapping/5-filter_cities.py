@@ -35,8 +35,10 @@ if __name__ == '__main__':
     rows = cursor.fetchall()
 
     # Display the results
-    for row in rows:
-        print("{}".format(row))
+    if rows:
+     print(", ".join(row[0] for row in rows))
+    else:
+     print()
 
     # Close the cursor and the database connection
     cursor.close()
