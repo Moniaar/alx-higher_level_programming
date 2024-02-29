@@ -1,3 +1,3 @@
 #!/bin/bash
 # Use curl to send a GET request and display the body of a 200 status code response
-curl -sI "$URL" | grep -i content-length | awk '{print $2}' | tr -d '\r'
+curl -sI "$URL" | grep -i Allow | cut -d " " -f 2-
