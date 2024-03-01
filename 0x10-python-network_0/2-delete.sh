@@ -1,3 +1,4 @@
 #!/bin/bash
-# Use curl to send a GET request and display the body
+# sends a DELETE request to the URL passed as the first argument and displays the body of the response
 curl -s "$1" -X DELETE
+
