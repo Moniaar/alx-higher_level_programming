@@ -1,22 +1,12 @@
 #!/usr/bin/node
 const fs = require('fs');
 
-function writeStringToFile (filePath, content) {
-  fs.writeFile(filePath, content, 'utf-8', (err) => {
-    if (err) {
-      console.error(err);
-    }
-  });
-}
+const content = process.argv[3];
 
-// Extracting file path and content from command line arguments
-const args = process.argv.slice(2);
-const filePath = args[0];
-const content = args[1];
+fs.writeFile(process.argv[2], content, 'utf-8', err => {
 
-// Checking if both file path and content are provided
-if (!filePath || !content) {
-  console.error(new Error('Please provide both a file path and content as arguments.'));
-} else {
-  writeStringToFile(filePath, content);
-}
+  if (err) {
+
+    console.error(err);
+  }
+})
