@@ -13,5 +13,5 @@ function getMoviesWithWedge (apiUrl) {
     }
   });
 }
-const apiUrl = 'https://swapi-api.alx-tools.com/api/films/';
+const apiUrl = 'https://swapi-api.alx-tools.com/api/films';
 getMoviesWithWedge(apiUrl);
